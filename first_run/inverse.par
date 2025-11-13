@@ -1,0 +1,107 @@
+[Global]
+xsec_path = /export/NAS/ariel/data/SOFTWARE_DATA/xsec/
+cia_path = /export/NAS/ariel/data/SOFTWARE_DATA/cia/
+
+[Chemistry]
+
+chemistry_type = taurex
+fill_gases = H2,He
+ratio = 4.8962e-100
+    
+    [[H2O]]
+    gas_type = constant
+    mix_ratio = 1.1185e-2
+
+    [[CO2]]
+    gas_type = constant
+    mix_ratio = 1.1185e-4
+
+    [[CO]]
+    gas_type = constant
+    mix_ratio = 3.00739e-9
+
+    [[CH4]]
+    gas_type = constant
+    mix_ratio = 3.00739e-9
+
+
+[Temperature]
+profile_type = isothermal
+T = 400
+
+
+
+[Pressure]
+profile_type = Simple
+atm_min_pressure = 1e-5
+atm_max_pressure = 1e7
+nlayers = 100
+
+[Planet]
+planet_type = Simple
+planet_mass = 0.171
+planet_radius = 1.35
+
+planet_distance= 0.06237
+impact_param=0.404
+orbital_period=4.736
+albedo=0.3
+transit_time=25503
+
+
+
+[Star]
+star_type = blackbody
+radius = 2.69
+temperature = 5375
+distance=99.1
+magnitudeK=6.122
+mass=1.44
+metallicity=0.17
+
+
+
+[Model]
+model_type = transmission
+
+
+    [[CIA]]
+    cia_pairs = H2-He, H2-H2
+
+    [[Absorption]]
+
+    [[Rayleigh]]
+
+[Observation]
+alfnoor_spectra = /home/ariel/lorenzo.mugnai/USER_DATA/Alfnoor2/20250226 - NAOJ/first_run/out/ArielInstrumentTier2
+
+
+[Optimizer]
+optimizer = nestle
+num_live_points=50
+method = single
+
+#optimizer = multinest
+#num_live_points = 250
+#max_iterations = 0
+#evidence_tolerance = 0.5
+#resume=False
+#verbose_output= True
+#multi_nest_path = m
+
+[Fitting]
+T:fit = True
+T:bounds = 300.0,1000.0
+H2O:fit = True
+H2O:bounds = 1E-10,0.7
+CO:fit = True
+CO:bounds = 1E-10,1E-1
+CO2:fit = True
+CO2:bounds = 1E-10,1E-1
+CH4:fit = True
+CH4:bounds = 1E-10,1E-1
+planet_radius:fit = True
+planet_radius:bounds = 0.138,0.184
+
+
+

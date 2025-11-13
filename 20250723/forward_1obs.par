@@ -1,0 +1,74 @@
+[Global]
+xsec_path = /export/NAS/ariel/data/SOFTWARE_DATA/xsec/
+cia_path = /export/NAS/ariel/data/SOFTWARE_DATA/cia/
+
+
+[Chemistry]
+chemistry_type = file
+gases = H2, H2O, CO, CO2, CH4, He
+filename = /home/ariel/lorenzo.mugnai/USER_DATA/Alfnoor2/20250226 - NAOJ/week 3/20250314_CompoProfile
+
+[Temperature]
+profile_type = file
+filename = /home/ariel/lorenzo.mugnai/USER_DATA/Alfnoor2/20250226 - NAOJ/week 3/20250314_PTprofile
+temp_col = 1
+press_col = 0
+
+[Pressure]
+profile_type = Simple
+atm_min_pressure = 1e-3
+atm_max_pressure = 1e7
+nlayers = 500
+
+[Planet]
+planet_type = Simple
+planet_mass = 0.0132
+planet_radius = 0.185
+planet_distance = 0.07
+
+[Star]
+star_type = blackbody
+radius = 0.38
+mass = 0.4
+temperature = 3386
+distance = 25
+
+
+#[Model]
+#model_type = transmission_cuda
+#
+#
+#    [[CIACUDA]]
+#    cia_pairs = H2-He, H2-H2
+#
+#    [[AbsorptionCUDA]]
+#
+#    [[RayleighCUDA]]
+
+[Model]
+model_type = transmission
+
+    [[CIA]]
+    cia_pairs = H2-He, H2-H2
+
+    [[Absorption]]
+
+    [[Rayleigh]]
+
+[Instrument 1]
+instrument = ariel
+num_observations = 1
+tier = 3
+name = ArielInstrument1Obs
+bin = 3
+config_file = /home/ariel/lorenzo.mugnai/SOFTWARE/ArielRad2/runConfig_flounder.xml
+
+
+
+[Alfnoor]
+# the user can include custom relation by including a "python_file" key. 
+# This file should contain a list of functions that return the alfnoor relations. 
+# Then the user can specify the name of the function and the "relation" key. 
+
+input-python_file = "/home/ariel/lorenzo.mugnai/USER_DATA/Alfnoor2/20250226 - NAOJ/20250723/relation_input_script.py"
+

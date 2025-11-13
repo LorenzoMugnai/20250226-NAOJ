@@ -1,0 +1,57 @@
+[Global]
+xsec_path = /Users/seochanoul/TauRexVulcan/Taurexparams/Input/xsec/xsec_sampled_R15000_0.3-15
+cia_path = /Users/seochanoul/TauRexVulcan/TauREx3_public/Input_ciaandxsec/cia/HITRAN/data
+
+
+[Chemistry]
+chemistry_type = file
+gases = H2, H2O, CO, CO2, CH4, He
+filename = /Users/seochanoul/Desktop/PlanetaryScience/Planetary_202410_DronAndIkoKimProject/202410_TauRExTest_Oxidizingrock_icerich_comp
+
+
+[Temperature]
+profile_type = file
+filename = /Users/seochanoul/Desktop/PlanetaryScience/Planetary_202410_DronAndIkoKimProject/202410_TauRExTest_Oxidizingrock_icerich_TP
+temp_col = 1
+press_col = 0
+
+[Pressure]
+profile_type = Simple
+atm_min_pressure = 1e-3
+atm_max_pressure = 1e7
+nlayers = 500
+
+[Planet]
+planet_type = Simple
+planet_mass = 0.0132
+planet_radius = 0.185
+planet_distance = 0.07
+
+[Star]
+star_type = blackbody
+radius = 0.38
+mass = 0.4
+temperature = 3386
+distance = 25
+
+[Model]
+model_type = transmission
+
+    [[CIA]]
+    cia_pairs = H2-He, H2-H2
+
+    [[Absorption]]
+
+    [[Rayleigh]]
+
+[Binning]
+bin_type = manual
+#wavelength_res = 1.1, 1.9, 10
+#wavelength_res = 1.95, 3.9, 50
+wavelength_res = 3.9, 7.8, 15
+
+
+
+
+
+
