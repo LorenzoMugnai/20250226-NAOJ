@@ -190,6 +190,7 @@ config/secrets.yaml
 *.csv
 *.png
 *.txt
+*.pdf
 
 
 # Backup files
