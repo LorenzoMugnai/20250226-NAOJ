@@ -188,6 +188,8 @@ config/secrets.yaml
 *.dat
 *.nc
 *.csv
+*.png
+*.txt
 
 
 # Backup files
